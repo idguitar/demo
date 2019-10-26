@@ -3,6 +3,7 @@ package com.guaranteed.demo.demo;
 import com.guaranteed.demo.demo.records.Parser;
 import com.guaranteed.demo.demo.records.Record;
 import com.guaranteed.demo.demo.records.RecordSorter;
+import com.guaranteed.demo.demo.repositories.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +16,10 @@ import java.util.*;
 public class DemoApplication implements CommandLineRunner {
 
     @Autowired
-    Parser parseFile;
+    private Parser parseFile;
+
+    @Autowired
+    private RecordRepository recordRepository;
 
     @Value("${filename:#{null}}")
     String fileName;
