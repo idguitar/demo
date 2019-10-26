@@ -9,21 +9,71 @@
 <body>
 
     <div class="container">
-        <table class="table" id="Gender Last Name">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Gender</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">BOD</th>
-                <th scope="col">Color</th>
-            </tr>
-<!--            <tr th:each="record : ${records}">-->
-<!--                <td th:text="${record.}"-->
-<!--            </tr>-->
-<!--            </thead>-->
-        </table>
+        <h5>Gender and then Last Name</h5>
+        <div class="row">
+            <div class="col-md ">
+                <table class="table table-sm table-responsive-sm" id="gender-last-name">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Gender</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">BOD</th>
+                        <th scope="col">Color</th>
+                    </tr>
+                    <tr th:each="record : ${recordsByGenderLastName}">
+                        <td th:text="${record.gender}"/>
+                        <td th:text="${record.lastName}"/>
+                        <td th:text="${record.firstName}"/>
+                        <td th:text="${record.birthDate}"/>
+                        <td th:text="${record.favoriteColor}"/>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <h5>Date of Birth</h5>
+            <table class="table table-sm table-responsive-sm" id="record-date">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">BOD</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Color</th>
+                </tr>
+                <tr th:each="record : ${recordByDate}">
+                    <td th:text="${record.birthDate}"/>
+                    <td th:text="${record.lastName}"/>
+                    <td th:text="${record.firstName}"/>
+                    <td th:text="${record.gender}"/>
+                    <td th:text="${record.favoriteColor}"/>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="row">
+            <h5>LastName</h5>
+            <table class="table table-sm table-responsive-sm" id="record-lastname">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">LastName</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">BOD</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Color</th>
+                </tr>
+                <tr th:each="record : ${recordsLastName}">
+                    <td th:text="${record.lastName}"/>
+                    <td th:text="${record.firstName}"/>
+                    <td th:text="${record.birthDate}"/>
+                    <td th:text="${record.gender}"/>
+                    <td th:text="${record.favoriteColor}"/>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </body>
 </html>

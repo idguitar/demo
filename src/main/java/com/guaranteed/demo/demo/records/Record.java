@@ -1,10 +1,13 @@
 package com.guaranteed.demo.demo.records;
 
+import org.springframework.data.annotation.Transient;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Record {
@@ -17,6 +20,10 @@ public class Record {
     private Gender gender;
     private String favoriteColor;
     private LocalDate birthDate;
+
+    public Record(){
+
+    }
 
     public Record(String firstName, String lastName, Gender g, String favoriteColor, LocalDate birthDate) {
         this.firstName = firstName;
@@ -42,7 +49,12 @@ public class Record {
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return this.birthDate;
+    }
+
+    public String getFormatBirthDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return this.birthDate.format(formatter);
     }
 
     @Override

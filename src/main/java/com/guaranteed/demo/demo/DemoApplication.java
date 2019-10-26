@@ -40,11 +40,8 @@ public class DemoApplication implements CommandLineRunner {
             records = parseFile.parseFile(args[0]);
         }
 
-        Comparator<Record> c = Comparator.comparing(Record::getBirthDate);
-        Comparator<Record> lastNameComp = Comparator.comparing(Record::getLastName).reversed();
-
-        TreeSet<Record> recordsByGenderLastName = new TreeSet<>(RecordSorter::compareByGenderThenLastName);
-        TreeSet<Record> recordByDate = new TreeSet<>(c);
-        TreeSet<Record> recordsLastName = new TreeSet<>(lastNameComp);
+        for (Record r : records) {
+            this.recordRepository.save(r);
+        }
     }
 }
