@@ -37,7 +37,7 @@ public class Parser {
         String[] r = rc.split(regex);
 
         LocalDate localDate = LocalDate.parse(r[4],formatter);
-        return new Record(r[0], r[1], Gender.lookUp(r[2])
+        return new Record(r[1], r[0], Gender.lookUp(r[2])
                     ,r[3],localDate);
     }
 
