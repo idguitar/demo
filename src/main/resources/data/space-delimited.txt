@@ -1,4 +1,3 @@
-LastName FirstName Gender FavoriteColor DateOfBirth
 D’Orso James M GREEN 12/09/1990
 D’Ottavio Mary F GREEN 11/01/1995
 D’Ovidio John M BLUE 01/03/1996

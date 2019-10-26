@@ -2,14 +2,7 @@ package com.guaranteed.demo.demo;
 
 import java.time.LocalDate;
 
-enum Gender{
-    MALE("M"), FEMALE("F");
-    private  final String gender;
 
-    private Gender(String g){
-        this.gender = g;
-    }
-}
 public class Record {
     private String firstName;
     private String lastName;
@@ -39,7 +32,7 @@ public class Record {
 
     @Override
     public String toString() {
-        return "First Name:" + this.firstName + " Last Name:" + this.lastName + " gender:" + this.gender +
-                " favorite Color:" + this.favoriteColor + " BirthDate:" + this.birthDate;
+        return "FirstName:" + this.firstName + " LastName:" + this.lastName + " gender:" + this.gender +
+                " favoriteColor:" + this.favoriteColor + " BirthDate:" + this.birthDate;
     }
 }
