@@ -1,4 +1,4 @@
-package com.guaranteed.demo.demo;
+package com.guaranteed.demo.demo.records;
 
 import java.time.LocalDate;
 
@@ -16,6 +16,25 @@ public class Record {
         this.gender = g;
         this.favoriteColor = favoriteColor;
         this.birthDate = birthDate;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public String getFavoriteColor() {
+        return favoriteColor;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
     @Override

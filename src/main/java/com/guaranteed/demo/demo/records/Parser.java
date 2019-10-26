@@ -1,4 +1,4 @@
-package com.guaranteed.demo.demo;
+package com.guaranteed.demo.demo.records;
 
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 

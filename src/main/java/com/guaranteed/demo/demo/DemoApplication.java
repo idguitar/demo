@@ -1,10 +1,15 @@
 package com.guaranteed.demo.demo;
 
+import com.guaranteed.demo.demo.records.Parser;
+import com.guaranteed.demo.demo.records.Record;
+import com.guaranteed.demo.demo.records.RecordSorter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.*;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -23,10 +28,24 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Set<Record> records = parseFile.parseFile(this.fileName);
+
         if(!(this.fileName == null)){
-            parseFile.parseFile(this.fileName);
+           records =parseFile.parseFile(this.fileName);
         }else if(args.length > 0) {
-            parseFile.parseFile(args[0]);
+            records = parseFile.parseFile(args[0]);
+        }
+
+        TreeSet<Record> recordsByGenderLastName = new TreeSet<>(RecordSorter::compareByGenderThenLastName);
+
+        for (Record r:
+             records) {
+            recordsByGenderLastName.add(r);
+        }
+
+        for (Record r:
+             recordsByGenderLastName) {
+            System.out.println(r);
         }
 
 

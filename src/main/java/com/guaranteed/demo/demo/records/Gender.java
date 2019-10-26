@@ -1,4 +1,4 @@
-package com.guaranteed.demo.demo;
+package com.guaranteed.demo.demo.records;
 
 
 public enum Gender{
