@@ -42,4 +42,8 @@ public class RecordController {
        return "views";
    }
 
+   @GetMapping("/records")
+   public void record(){
+
+   }
 }

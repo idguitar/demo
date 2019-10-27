@@ -25,7 +25,7 @@
                         <td th:text="${record.gender}"/>
                         <td th:text="${record.lastName}"/>
                         <td th:text="${record.firstName}"/>
-                        <td th:text="${record.birthDate}"/>
+                        <td th:text="${record.getFormatBirthDate()}"/>
                         <td th:text="${record.favoriteColor}"/>
                     </tr>
                     </thead>
@@ -44,7 +44,7 @@
                     <th scope="col">Color</th>
                 </tr>
                 <tr th:each="record : ${recordByDate}">
-                    <td th:text="${record.birthDate}"/>
+                    <td th:text="${record.getFormatBirthDate()}"/>
                     <td th:text="${record.lastName}"/>
                     <td th:text="${record.firstName}"/>
                     <td th:text="${record.gender}"/>
@@ -67,7 +67,7 @@
                 <tr th:each="record : ${recordsLastName}">
                     <td th:text="${record.lastName}"/>
                     <td th:text="${record.firstName}"/>
-                    <td th:text="${record.birthDate}"/>
+                    <td th:text="${record.getFormatBirthDate()}"/>
                     <td th:text="${record.gender}"/>
                     <td th:text="${record.favoriteColor}"/>
                 </tr>
