@@ -1,6 +1,8 @@
 package com.guaranteed.demo.demo.records;
 
-import org.springframework.data.annotation.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 
 @Entity
 public class Record {
@@ -19,6 +22,7 @@ public class Record {
     private String lastName;
     private Gender gender;
     private String favoriteColor;
+
     private LocalDate birthDate;
 
     public Record(){
@@ -31,6 +35,20 @@ public class Record {
         this.gender = g;
         this.favoriteColor = favoriteColor;
         this.birthDate = birthDate;
+
+    }
+
+    @JsonSetter("birthDate")
+    public void setBirthDate(LinkedHashMap birthDate) {
+        int year = Integer.parseInt(birthDate.get("year").toString());
+        int month = Integer.parseInt(birthDate.get("monthValue").toString());
+
+        int day = Integer.parseInt(birthDate.get("dayOfMonth").toString());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate localDate = LocalDate.of(year,month,day);
+        localDate.format(formatter);
+        this.birthDate = localDate;
     }
     public String getFirstName() {
         return firstName;
@@ -52,6 +70,7 @@ public class Record {
         return this.birthDate;
     }
 
+    @JsonIgnore
     public String getFormatBirthDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return this.birthDate.format(formatter);
