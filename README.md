@@ -2,9 +2,10 @@
 
 mvn clean install package
 
-java -jar <pathToFile>
+java -jar demo-0.01-SNAPSHOT-spring-boot.jar pathToFile
 
 
 
-Load the view 
+Load the views 
+ 
 http://localhost:8080/
