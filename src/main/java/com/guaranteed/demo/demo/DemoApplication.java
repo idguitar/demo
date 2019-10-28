@@ -42,12 +42,14 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Set<Record> records = parseFile.parseFile(this.fileName);
+        Set<Record> records = null;
 
-        if(!(this.fileName == null)){
-           records =parseFile.parseFile(this.fileName);
-        }else if(args.length > 0) {
+         if(args.length > 0) {
+            System.out.println("Loading File:" +args[0]);
             records = parseFile.parseFile(args[0]);
+        } else{
+            System.out.println("Loading File:" + this.fileName);
+            records =parseFile.parseFile(this.fileName);
         }
 
         for (Record r : records) {
