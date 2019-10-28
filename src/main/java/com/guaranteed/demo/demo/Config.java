@@ -4,7 +4,6 @@ import com.guaranteed.demo.demo.records.Record;
 import com.guaranteed.demo.demo.records.RecordSorter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.util.Comparator;
 import java.util.TreeSet;
 

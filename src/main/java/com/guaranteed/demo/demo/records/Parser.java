@@ -25,15 +25,19 @@ public class Parser {
 
         if(line.contains("|")){
             return getRecord(line, "\\|");
-        }else if(line.equalsIgnoreCase(",")){
+        }else if(line.contains(",")){
            return getRecord(line, ",");
         }else {
-            return getRecord(line, " ") ;
+            return getRecord(line, "\\s+");
         }
     }
 
     protected Record getRecord(String line, String regex){
-        String rc = line.replaceAll("\\s+","");
+        String rc = line;
+
+        if(!regex.equals("\\s+"))
+        rc = line.replaceAll("\\s+","");
+
         String[] r = rc.split(regex);
 
         LocalDate localDate = LocalDate.parse(r[4],formatter);
