@@ -2,8 +2,6 @@ package com.guaranteed.demo.demo;
 
 import com.guaranteed.demo.demo.records.Record;
 import com.guaranteed.demo.demo.records.RecordSorter;
-import com.guaranteed.demo.demo.repositories.RecordRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +10,7 @@ import java.util.TreeSet;
 
 @Configuration
 public class Config {
+
     Comparator<Record> c = Comparator.comparing(Record::getBirthDate);
     Comparator<Record> lastNameComp = Comparator.comparing(Record::getLastName).reversed();
 
@@ -19,9 +18,6 @@ public class Config {
     TreeSet<Record> recordsByGenderLastName;
     TreeSet<Record> recordByDate;
     TreeSet<Record> recordsLastName;
-
-    @Autowired
-    RecordRepository recordRepository;
 
     Config(){
         this.recordsByGenderLastName = new TreeSet<>(RecordSorter::compareByGenderThenLastName);

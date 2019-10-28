@@ -14,20 +14,26 @@ import java.util.TreeSet;
 @Controller
 public class RecordController {
 
-    @Autowired
     @Qualifier("getRecordsByGenderLastName")
     TreeSet<Record> recordsByGenderLastName;
 
-    @Autowired
     @Qualifier("getRecordByDate")
     TreeSet<Record> recordByDate;
 
-    @Autowired
     @Qualifier("getRecordsLastName")
     TreeSet<Record> recordsLastName;
 
-    @Autowired
     private RecordRepository recordRepository;
+
+    public RecordController(@Autowired RecordRepository recordRepository,
+                            @Autowired  @Qualifier("getRecordsLastName") TreeSet<Record> recordsLastName,
+                            @Autowired  @Qualifier("getRecordByDate") TreeSet<Record> recordByDate,
+                            @Qualifier("getRecordsByGenderLastName") TreeSet<Record> recordsByGenderLastName) {
+        this.recordByDate = recordByDate;
+        this.recordsByGenderLastName = recordsByGenderLastName;
+        this.recordsLastName = recordsLastName;
+        this.recordRepository = recordRepository;
+    }
 
     @GetMapping("/")
    public String geIndex(Model model) {

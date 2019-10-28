@@ -12,22 +12,24 @@ import java.util.TreeSet;
 @RestController
 public class RecordApi {
 
-    @Autowired
-    @Qualifier("getRecordsByGenderLastName")
     TreeSet<Record> recordsByGenderLastName;
-
-    @Autowired
-    @Qualifier("getRecordByDate")
     TreeSet<Record> recordByDate;
-
-    @Autowired
-    @Qualifier("getRecordsLastName")
     TreeSet<Record> recordsLastName;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    @Autowired
     private RecordRepository recordRepository;
+
+    public RecordApi(@Autowired RecordRepository recordRepository,
+                     @Autowired  @Qualifier("getRecordsLastName") TreeSet<Record> recordsLastName,
+                     @Autowired  @Qualifier("getRecordByDate") TreeSet<Record> recordByDate,
+                     @Autowired @Qualifier("getRecordsByGenderLastName") TreeSet<Record> recordsByGenderLastName) {
+        this.recordByDate = recordByDate;
+        this.recordsByGenderLastName = recordsByGenderLastName;
+        this.recordsLastName = recordsLastName;
+        this.recordRepository = recordRepository;
+    }
+
 
     @GetMapping("/records/{type}")
     public String getRecord(@PathVariable String type) throws IOException {
