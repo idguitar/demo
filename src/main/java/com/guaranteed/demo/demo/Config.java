@@ -11,8 +11,10 @@ import java.util.TreeSet;
 @Configuration
 public class Config {
 
-    Comparator<Record> c = Comparator.comparing(Record::getBirthDate);
-    Comparator<Record> lastNameComp = Comparator.comparing(Record::getLastName).reversed();
+    Comparator<Record> c = Comparator.comparing(Record::getBirthDate).thenComparing(Record::getLastName)
+            .thenComparing(Record::getFirstName);
+    Comparator<Record> lastNameComp = Comparator.comparing(Record::getLastName).thenComparing(Record::getFirstName)
+            .thenComparing(Record::getBirthDate).reversed();
 
 
     TreeSet<Record> recordsByGenderLastName;

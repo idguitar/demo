@@ -5,7 +5,6 @@ import com.guaranteed.demo.demo.repositories.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -14,13 +13,8 @@ import java.util.TreeSet;
 @Controller
 public class RecordController {
 
-    @Qualifier("getRecordsByGenderLastName")
     TreeSet<Record> recordsByGenderLastName;
-
-    @Qualifier("getRecordByDate")
     TreeSet<Record> recordByDate;
-
-    @Qualifier("getRecordsLastName")
     TreeSet<Record> recordsLastName;
 
     private RecordRepository recordRepository;
