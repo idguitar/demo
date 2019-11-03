@@ -2,7 +2,6 @@ package com.guaranteed.demo.demo.records;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,11 +21,17 @@ public class Record {
     private String lastName;
     private Gender gender;
     private String favoriteColor;
-
     private LocalDate birthDate;
 
     public Record(){
 
+    }
+
+    @Override
+    public int hashCode() {
+        int x = this.firstName.hashCode() + this.lastName.hashCode()
+                + this.birthDate.hashCode() + this.favoriteColor.hashCode() + this.gender.hashCode();
+        return x;
     }
 
     public Record(String firstName, String lastName, Gender g, String favoriteColor, LocalDate birthDate) {
@@ -85,7 +90,7 @@ public class Record {
         Record obj = (Record)o;
         return this.firstName.equals(obj.firstName) && this.lastName.equals(obj.lastName) &&
                 this.gender.equals(obj.gender) && this.favoriteColor.equals(obj.favoriteColor) &&
-                this.birthDate.equals(obj.gender);
+                this.birthDate.equals(obj.getBirthDate());
     }
 
     @Override

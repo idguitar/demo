@@ -1,7 +1,8 @@
-package com.guaranteed.demo.demo.records;
+package com.guaranteed.demo.demo.service;
 
-import org.springframework.stereotype.Component;
-
+import com.guaranteed.demo.demo.records.Gender;
+import com.guaranteed.demo.demo.records.Record;
+import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-@Component
+@Service
 public class Parser {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -49,7 +50,9 @@ public class Parser {
         Stream<String> stream = Files.lines(Paths.get(fileName));
         Set<Record> records = new HashSet<Record>();
 
-        stream.map(this::parseLine).forEach(records::add);
+        stream.map(this::parseLine).forEach((a)->{
+            records.add(a);
+        });
         return records;
     }
 

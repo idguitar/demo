@@ -1,6 +1,6 @@
 package com.guaranteed.demo.demo;
 
-import com.guaranteed.demo.demo.records.Parser;
+import com.guaranteed.demo.demo.service.Parser;
 import com.guaranteed.demo.demo.records.Record;
 import com.guaranteed.demo.demo.repositories.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.awt.*;
+import java.net.URI;
 import java.util.*;
 
 @SpringBootApplication

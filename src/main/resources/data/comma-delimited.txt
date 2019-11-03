@@ -1,10 +1,11 @@
-D’Orso, James, M, GREEN, 12/09/1990
-D’Ottavio, Mary, F, GREEN, 11/01/1995
-D’Ovidio, John, M, BLUE, 01/03/1996
-D’Souza, Patrici, F, RED, 02/05/1998
-D’Urbano, Robert, M, BROWN, 03/03/2000
-D’Urso, Jennifer, F, WHITE, 04/05/1993
-D’Uva, Michael, M, YELLOW, 06/01/1992
+DOrso, Jay, M, GREEN, 12/09/1991
+DOrso, James, M, GREEN, 12/09/1990
+DOttavio, Mary, F, GREEN, 11/01/1995
+DOvidio, John, M, BLUE, 01/03/1996
+DSouza, Patrici, F, RED, 02/05/1998
+DUrbano, Robert, M, BROWN, 03/03/2000
+DUrso, Jennifer, F, WHITE, 04/05/1993
+DUva, Michael, M, YELLOW, 06/01/1992
 DaCosta,Linda, F, BLACK, 01/19/1956
 DaCruz, Elizabeth, F, WHITE, 04/25/1972
 DaCunha, Barbara, F, GRAY, 01/01/2001
@@ -13,3 +14,4 @@ DaPonte, Jessica, F, RED, 02/03/1997
 DaPra, Sarah, F, VIOLET, 01/03/1997
 DaRocha, Karen, F, PURPLE, 01/06/1991
 DaRosa, Nancy, F, SKY, 04/06/1998
+DaRosa, Nancy, F, SKY, 04/06/1992
